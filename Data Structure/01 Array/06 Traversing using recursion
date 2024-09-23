@@ -1,0 +1,21 @@
+// Traversing and display elements from an array using recursion
+#include<stdio.h>
+int recursive_traverse(int arr[], int len);
+
+int main() {
+    int arr[] = {1, 2, 3, 4};
+    int len = sizeof(arr) / sizeof(arr[0]);
+
+    printf("\nDisplay the elements of an array after traversing\n");
+    recursive_traverse(arr, len);
+
+    return 0;
+}
+
+int recursive_traverse(int arr[], int len) {
+    if(len <= 0) {
+        return;
+    }
+    recursive_traverse(arr, len-1);
+    printf("%d ", arr[len - 1]);
+}
