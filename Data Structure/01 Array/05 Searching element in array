@@ -1,0 +1,40 @@
+// MCA DS-Array problem no 3 (Simple array searching)
+#include<stdio.h>
+
+void display(int arr[], int n);
+void searching(int arr[], int n);
+
+int main() {
+	printf("\nArray searching");
+	int arr[20] = {21, 18, 45, 30, 56};
+	int n = 5;
+
+	display(arr, n);
+	searching(arr, n);
+	return 0;
+}
+
+void display(int arr[], int n) {
+	int i;
+	printf("\nArray elements:");
+	for(i=0; i<n; i++) {
+		printf("%d ",arr[i]);
+	}
+}
+
+void searching(int arr[], int n) {
+	int elem, i, found = 0;
+	printf("\nEnter the element: ");
+	scanf("%d",&elem);
+	
+	for(i=0; i<n ; i++) {
+		if(elem == arr[i]) {
+			printf("\n%d Element found at index %d", elem, i);
+			found++;
+			break;
+		} 
+	} 
+	if(!found) {
+		printf("\n%d Element not found in array", elem);
+	}
+}
