@@ -1,4 +1,4 @@
-// Performing traversal, insertion, deletion and searching operations in array creating menu 
+// Performing traversal, insertion, deletion and searching operations in array
 #include<stdio.h>
 #include<stdlib.h>
 
