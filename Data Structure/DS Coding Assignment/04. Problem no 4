@@ -17,7 +17,7 @@ int main() {
 	printf("Enter the size to create an array: ");
 	scanf("%d",&n);
 	
-	if(n <= 0 && n > MAX) {
+	if(n <= 0 || n > MAX) {
 		printf("\n\nInvalid Input. Size should be (1 to %d)",MAX);
 	}
 	createArray(n);
@@ -39,8 +39,6 @@ void createArray(int n) {
 
 // Menu Function
 void menu(int arr[], int *n) {
-	printf("_______\n______");
-	
 	int choice;
 	do {
 		printf("\n\nMenu");
