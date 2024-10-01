@@ -1,0 +1,115 @@
+/* 5.Write a program to delete an element from an array from the following positions:
+		From the end of the array
+		From any desired location*/
+		
+#include<stdio.h>
+#define MAX 20
+		
+void createArray(int n);
+void display(int arr[], int n);
+
+void delete_from_the_end(int arr[], int *n);
+void delete_from_any_loc(int arr[], int *n);
+
+int main() {
+	int n;
+	printf("Enter the size of an array: ");
+	scanf("%d", &n);
+	
+	if(n <= 0 || n > MAX) {
+		printf("\n\nInvalid Input. Size should be (1 to %d)",MAX);
+	}
+	createArray(n);
+	return 0;
+}
+
+// Function to create an array
+void createArray(int n) {
+	int arr[MAX], i;
+	
+	printf("\nInsert elements into array\n");
+	for(i=0; i<n; i++) {
+		printf("Index %d: ",i);
+		scanf("%d",&arr[i]);
+	}
+	printf("\nArray created successfully");
+	menu(arr, &n);
+}
+
+// Menu Function
+void menu(int arr[], int *n) {
+	int choice;
+	printf("\n");
+	
+	do {
+		printf("\nMenu");
+		printf("\n 1. Delete the last element");
+		printf("\n 2. Delete an element from any desired location");
+		printf("\n 3. Display");
+		printf("\n 4. Exit");
+		
+		printf("\n\nEnter your choice: ");
+		scanf("%d",&choice);
+		
+		switch(choice) {
+			case 1:
+				delete_from_the_end(arr, n);
+				break;
+			
+			case 2:
+				delete_from_any_loc(arr, n);
+				break;
+				
+			case 3:
+				display(arr, *n);
+				break;
+			
+			case 4: 
+				printf("\n\nSuccessfully exit");
+				break;
+				
+			default: 
+					printf("\n\nInvalid Input");
+					break;
+		}
+	} while(choice != 4);
+}
+
+// Display function
+void display(int arr[], int n) {
+	int i;
+	printf("\n\nArray Elements: ");
+	for(i=0; i<n; i++) {
+		printf("%d ", arr[i]);
+	}
+	printf("\n");
+}
+
+// Function to delete the last element from an array
+void delete_from_the_end(int arr[], int *n) {
+	if(*n > 0 || *n <= MAX) {
+		(*n)--;
+	} else {
+		printf("\nMemory is empty");
+	}
+	printf("\nElement deleted successfully\n");
+}
+
+// Function to delete an element from any desired location
+void delete_from_any_loc(int arr[], int *n) {
+	int i;
+	
+	if(*n > 0 || *n <= MAX) {
+		int loc;
+		printf("\nEnter the location: ");
+		scanf("%d", &loc);
+		
+		for(i=loc; i<*n; i++) {
+			arr[i] = arr[i+1];
+		} 
+		(*n)--;
+	} else {
+		printf("\nMemory is empty");
+	}
+	printf("\nElement deleted successfully\n");
+}
