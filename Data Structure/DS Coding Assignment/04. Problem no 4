@@ -33,21 +33,22 @@ void createArray(int n) {
 		printf("Index %d: ",i);
 		scanf("%d",&arr[i]);
 	}
-	printf("\n\nArray created successfully");
+	printf("\nArray created successfully");
 	menu(arr, &n);
 }
 
 // Menu Function
 void menu(int arr[], int *n) {
 	int choice;
+	printf("\n");
 	do {
-		printf("\n\nMenu");
+		printf("\nMenu");
 		printf("\n 1. Insert element at the end");
 		printf("\n 2. Insert element at any desired location");
 		printf("\n 3. Display");
 		printf("\n 4. Exit");
 		
-		printf("\nEnter your choice: ");
+		printf("\n\nEnter your choice: ");
 		scanf("%d",&choice);
 		
 		switch(choice) {
@@ -81,12 +82,13 @@ void display(int arr[], int n) {
 	for(i=0; i<n; i++) {
 		printf("%d ", arr[i]);
 	}
+	printf("\n");
 }
 
 // Function to insert element at the end of the array
 void insert_at_the_end(int arr[], int *n) {
 	if(*n >= MAX) {
-		printf("Memory is full");
+		printf("\nMemory is full\n");
 		return;
 	} 
 	
@@ -102,12 +104,12 @@ void insert_at_the_end(int arr[], int *n) {
 // Function to insert element at any desired location
 void insert_at_any_loc(int arr[], int *n) {
 	if(*n >= MAX) {
-		printf("\n\nMemory is full");
+		printf("\nMemory is full\n");
 		return;
 	}
 	
 	int loc, elem, i;
-	printf("Enter the location (0 to %d): ",*n);
+	printf("\nEnter the location (0 to %d): ",*n);
 	scanf("%d",&loc);
 	
 	if(loc < 0 || loc > *n) {
@@ -115,7 +117,7 @@ void insert_at_any_loc(int arr[], int *n) {
 		return;
 	}
 	
-	printf("Enter the element: ");
+	printf("\nEnter the element: ");
 	scanf("%d",&elem);
 	
 	for(i=*n; i>loc; i--) {
