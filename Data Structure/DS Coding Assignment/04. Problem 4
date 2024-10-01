@@ -1,0 +1,127 @@
+/* 4.	Write a program to insert an element in an array in the following positions:
+	  At the end of the array
+	  At any desired location */
+
+#include<stdio.h>
+#define MAX 50
+
+void createArray(int n);
+void menu(int arr[], int *n);
+
+void display(int arr[], int n);
+void insert_at_the_end(int arr[], int *n);
+void insert_at_any_loc(int arr[], int *n);
+
+int main() {
+	int n;
+	printf("Enter the size to create an array: ");
+	scanf("%d",&n);
+	
+	if(n <= 0 && n > MAX) {
+		printf("\n\nInvalid Input. Size should be (1 to %d)",MAX);
+	}
+	createArray(n);
+	return 0;
+}
+
+// Function to create an array
+void createArray(int n) {
+	int arr[MAX], i;
+	
+	printf("\nInsert elements into array\n");
+	for(i=0; i<n; i++) {
+		printf("Index %d: ",i);
+		scanf("%d",&arr[i]);
+	}
+	printf("\n\nArray created successfully");
+	menu(arr, &n);
+}
+
+// Menu Function
+void menu(int arr[], int *n) {
+	printf("_______\n______");
+	
+	int choice;
+	do {
+		printf("\n\nMenu");
+		printf("\n 1. Insert element at the end");
+		printf("\n 2. Insert element at any desired location");
+		printf("\n 3. Display");
+		printf("\n 4. Exit");
+		
+		printf("\nEnter your choice: ");
+		scanf("%d",&choice);
+		
+		switch(choice) {
+			case 1:
+				insert_at_the_end(arr, n);
+				break;
+			
+			case 2:
+				insert_at_any_loc(arr, n);
+				break;
+				
+			case 3:
+				display(arr, *n);
+				break;
+			
+			case 4: 
+				printf("\n\nSuccessfully exit");
+				break;
+				
+			default: 
+					printf("\n\nInvalid Input");
+					break;
+		}
+	} while(choice != 4);
+}
+
+// Display function
+void display(int arr[], int n) {
+	int i;
+	printf("\n\nArray Elements: ");
+	for(i=0; i<n; i++) {
+		printf("%d ", arr[i]);
+	}
+}
+
+// Function to insert element at the end of the array
+void insert_at_the_end(int arr[], int *n) {
+	if(*n >= MAX) {
+		printf("Memory is full");
+		return;
+	} 
+	
+	int elem;
+	
+	printf("\n\nEnter the element: ");
+	scanf("%d",&elem);
+	
+	arr[*n] = elem;
+	(*n)++;	
+}
+
+// Function to insert element at any desired location
+void insert_at_any_loc(int arr[], int *n) {
+	if(*n >= MAX) {
+		printf("\n\nMemory is full");
+		return;
+	}
+	
+	int loc, elem, i;
+	printf("Enter the location (0 to %d): ",*n);
+	scanf("%d",&loc);
+	
+	if(loc < 0 || loc > *n) {
+		printf("\n\nWrong Input");
+		return;
+	}
+	
+	printf("Enter the element: ");
+	scanf("%d",&elem);
+	
+	for(i=*n; i>loc; i--) {
+		arr[i] = arr[i-1];
+	} arr[loc] = elem;
+	(*n)++;
+}
