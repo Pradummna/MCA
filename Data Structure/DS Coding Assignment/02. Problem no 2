@@ -2,7 +2,7 @@
 #include<stdio.h>
 
 void createArray(int arr[], int n);
-void display(int arr[], int n);
+void printArray(int arr[], int n);
 void traverseAndAdd(int arr[], int n);
 
 int main() {
@@ -11,13 +11,13 @@ int main() {
 
   createArray(arr, 5);
   printf("\n\nPrinting the array elements: ");
-  display(arr, 5);
+  printArray(arr, 5);
   
   printf("\n\nTraversing in array and add 5 in every element\n");
   traverseAndAdd(arr, 5);
   
   printf("\n\nPrinting new array elements after traversing: ");
-  display(arr, 5);
+  printArray(arr, 5);
 
   return 0;
 }
@@ -34,7 +34,7 @@ void createArray(int arr[], int n) {
 }
 
 // Function to display the elements from an array
-void display(int arr[], int n) {
+void printArray(int arr[], int n) {
   int i;
   for(i=0; i<n; i++) {
     printf("%d ",arr[i]);
