@@ -29,10 +29,10 @@ void createArray(int n) {
 	int arr[MAX], i;
 	
 	printf("\nInsert elements into array\n");
-	for(i=0; i<n; i++) {
+	for(i=0; i<n; i++) {	
 		printf("Index %d: ",i);
 		scanf("%d",&arr[i]);
-	}
+	} 						
 	printf("\nArray successfully created");
 	menu(arr, &n);
 }
@@ -94,7 +94,7 @@ void insert_at_the_end(int arr[], int *n) {
 	int elem;
 	printf("\n\nEnter the element: ");
 	scanf("%d",&elem);
-	arr[*n] = elem;
+	arr[*n] = elem;	   
 	(*n)++;	
 }
 
