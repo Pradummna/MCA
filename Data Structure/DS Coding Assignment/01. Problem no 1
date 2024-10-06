@@ -22,7 +22,7 @@ void createArray(int arr[], int n) {
     printf("Index %d: ", i);
     scanf("%d", &arr[i]);
   }
-  printf("\nElements successfully added");
+  printf("\nElements successfully added\n");
 }
 
 // Function to display the elements from an array
