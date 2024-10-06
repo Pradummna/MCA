@@ -7,7 +7,6 @@ void display(int arr[], int n);
 
 int main() {
   int arr[5];
-
   printf("program to input 5 integer values and print them on the screen.");
   createArray(arr, 5);
   display(arr, 5);
