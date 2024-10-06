@@ -14,9 +14,9 @@ int main() {
   int found = linearSearch(arr, 5, value);
 
   if(found == -1) {
-    printf("%d value is not found in array: ", value);
+    printf("\n%d value is not found in array: ", value);
   } else {
-    printf("%d value is found in array index: %d ", value, found);
+    printf("\n%d value is found in array index: %d ", value, found);
   }
   return 0;
 }
