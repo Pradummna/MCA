@@ -28,7 +28,7 @@ void createArray(int arr[], int n) {
 // Function to display the elements from an array
 void display(int arr[], int n) {
   int i;
-  printf("\nDisplaying elements:\n");
+  printf("\nPrinting array elements:\n");
   for(i=0; i<n; i++) {
     printf("%d ",arr[i]);
   }
