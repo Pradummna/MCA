@@ -1,6 +1,6 @@
 // 1. Write a program to input 5 integer values and print them on the screen.
 // Solution: 
-#include <stdio.h>
+#include<stdio.h>
 
 void createArray(int arr[], int n);
 void display(int arr[], int n);
