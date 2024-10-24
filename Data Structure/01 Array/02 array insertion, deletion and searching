@@ -1,0 +1,206 @@
+#include<stdio.h>
+#define MAX 50
+
+void createArr(int *n);
+void menu(int arr[], int *n);
+
+void display(int arr[], int n);
+void insert_at_end(int arr[], int *n);
+void insert_at_any_loc(int arr[], int *n);
+void delete_at_end(int arr[], int *n);
+void delete_at_any_loc(int arr[], int *n);
+void search_elem(int arr[], int n);
+
+int main() {
+	int n;
+	printf("Enter the size of the array: ");
+	scanf("%d",&n);
+	
+	if(n < 0) {
+		printf("\nEnter valid size");
+	}
+	createArr(&n);
+}
+
+// function to create array
+void createArr(int *n) {
+	int i;
+	int arr[MAX];
+	
+	printf("\n\nInsert elements into an array: \n");
+	for(i=0; i<*n; i++) {
+		printf("%d Index: ", i);
+		scanf("%d",&arr[i]);
+	}
+	printf("\nArray successfully created");
+	menu(arr, n);
+}
+
+// menu function
+void menu(int arr[], int *n) {
+	int choice;
+	
+	do {
+		printf("\n1. Display");
+		printf("\n2. Insert element at the end");
+		printf("\n3. Insert element at any desired location");
+		printf("\n4. Delete element at the end");
+		printf("\n5. Delete element at any desired location");
+		printf("\n6. Search element from the array");
+		printf("\n7. Exit");
+		
+		printf("\nEnter your choice: ");
+		scanf("%d",&choice);
+		
+		switch(choice) {
+			case 1: {
+				display(arr, *n);
+				break;
+			}
+			
+			case 2: {
+				insert_at_end(arr, n);
+				break;
+			}
+			
+			case 3: {
+				insert_at_any_loc(arr, n);
+				break;
+			}
+			
+			case 4: {
+				delete_at_end(arr, n);
+				break;
+			}
+			
+			case 5: {
+				delete_at_any_loc(arr, n);
+				break;
+			}
+			
+			case 6: {
+				search_elem(arr, *n);
+				break;
+			}
+			
+			case 7: 
+				printf("\nExit successfully");
+				break;
+			
+			default: 
+				printf("\nInvalid input");
+				break;
+		}
+		
+	} while(choice != 7);
+}
+
+// function to print array elements
+void display(int arr[], int n) {
+	int i;
+	
+	printf("\nPrinting array elements: ");
+	for(i=0; i<n; i++) {
+		printf("%d ",arr[i]);
+	}
+}
+
+// function to insert element at the last location of an array
+void insert_at_end(int arr[], int *n) {
+	int i, elem;
+	
+	if(*n >= MAX) {
+		printf("\nMemory is full you cannot insert");
+	} 
+	printf("\nInsert element at the end of the array");
+	printf("\nEnter the element: ");
+	scanf("%d",&elem);
+	
+	arr[*n] = elem;
+	(*n)++;
+	printf("\nElement inserted successfully at the end of the array");
+}
+
+// function to insert an element at any desired location of an array
+void insert_at_any_loc(int arr[], int *n) {
+	int i, loc, elem;
+	
+	if(*n >= MAX) {
+		printf("\nMemory is full you cannot insert");
+	} 
+	printf("\nInsert element at any desired location of the array");
+	printf("\nEnter the location: ");
+	scanf("%d",&loc);
+	
+	if(loc >= *n) {
+		printf("\nMemory is full you cannot insert");
+	}
+	printf("\nEnter the element: ");
+	scanf("%d",&elem);
+	
+	for(i=*n; i >= loc; i--) {
+		arr[i] = arr[i-1];
+	}
+	arr[loc] = elem;
+	(*n)++;
+	printf("\nElement inserted successfully at the array");
+}
+
+// function delete an element from the last location
+void delete_at_end(int arr[], int *n) {
+	if(*n < 0) {
+		printf("\nDeletion incomplete. Memory is empty");
+	}
+	(*n)--;
+	printf("\nElement successfully deleted from the end");
+}
+
+// function to delete an element from any desired location of an array
+void delete_at_any_loc(int arr[], int *n) {
+	if(*n < 0) {
+		printf("\nDeletion incomplete. Memory is empty");
+		return;
+	}
+	int i, loc;
+	printf("\nDelete element from an any desired location");
+	printf("\nEnter location (0 to %d): ",*n-1);
+	scanf("%d",&loc);
+	
+	if(loc >= *n) {
+		printf("\nWrong input");
+	}
+	for(i=loc; i < *n; i++) {
+		arr[i] = arr[i-1];	
+	} 
+	(*n)--;
+	printf("\nElement successfully deleted at location %d",loc);
+}
+
+// function search a element is found on array or not 
+void search_elem(int arr[], int n) {
+	int i, elem, count = 0; 
+	int loc[MAX];
+	
+	if(n < 0) {
+		printf("\nMemory is empty");
+	}
+	
+	printf("\nEnter the element: ");
+	scanf("%d",&elem);
+	
+	for(i=0; i<n; i++) {
+		if(elem == arr[i]) {
+			count++;
+			loc[i] = i;
+		}
+	}
+	
+	if(!count) {
+		printf("\nThe given element %d is not found in array",elem);
+	} else {
+		printf("\nThe given element %d is found in location: ");
+		for(i=0; i<n; i++) {
+			printf("%d ",loc[i]);
+		}
+	}
+}
