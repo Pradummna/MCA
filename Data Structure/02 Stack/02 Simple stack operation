@@ -1,0 +1,41 @@
+#include<stdio.h>
+#define SIZE 20
+
+int stack[SIZE];
+int top = -1;
+
+void display(int stack[], int n) {
+	int i;
+	printf("\nPrinting stack elements\n");
+	for(i=0; i<n; i++) {
+		printf("%d Index: %d\n",i, stack[i]);
+	}
+}
+
+void push(int data, int n) {
+	if(top >= SIZE) {
+		printf("\n\nStack overflow");
+		return -1;
+	}
+	top++;
+	stack[top] = data;
+}
+
+int main() {
+	int n, i, data;
+	printf("Enter the number of data you want to store (0 to %d): ", SIZE);
+	scanf("%d",&n);
+	
+	if(top >= SIZE) {
+		printf("\n\nStack overflow");
+		return -1;
+	}
+	
+	for(i = 0; i < n; i++) {
+		printf("%d Index: ", i);
+		scanf("%d",&data);
+		push(data, n);
+	}
+	display(stack, n);
+	return 0;
+}
