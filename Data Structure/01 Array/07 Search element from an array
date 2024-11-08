@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+int main() {
+	int arr[] = {12, 36, 78, 82, 93, 28};
+	int len = sizeof(arr) / sizeof(arr[0]);
+	int data, i, found = 0, loc;
+	
+	printf("Search an element is exist in array or not");
+	printf("\nEnter the element: ");
+	scanf("%d", &data);
+
+	for(i = 0; i < len - 1; i++) {
+		if(arr[i] == data) {
+			found++;
+			loc = i;
+			break;
+		}
+	}
+
+	if(!found) {
+		printf("\n\n%d element is not found in array",data);
+	} else {
+		printf("\n%d element is found in location %d",data, loc);
+	}
+	return 0;
+}
