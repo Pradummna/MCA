@@ -1,1 +1,17 @@
+#include<stdio.h>
 
+int main() {
+	int arr[] = {1, 2, 3, 4, 5};
+	int len = sizeof(arr) / sizeof(arr[0]);
+	int trav, no;
+	printf("Enter 1 to traverse into an array ");
+	scanf("%d",&trav);
+	
+	if(trav == 1) {
+		int i;
+		for(i = 0; i < len - 1; i++) {
+			no += i;
+		} printf("\n\nTraversing successfully completed %d", no);
+	}
+	return 0;
+}
