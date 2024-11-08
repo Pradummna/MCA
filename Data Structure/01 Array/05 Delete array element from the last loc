@@ -1,0 +1,24 @@
+#include<stdio.h>
+
+void printArr(int arr[], int n) {
+	int i;
+	for(i=0; i<n; i++) {
+		printf("%d ",arr[i]);
+	}
+}
+
+int main() {
+	int arr[] = {21, 32, 26, 44};
+	int len = sizeof(arr) / sizeof(arr[0]);
+	
+	printf("Printing array elements: ");
+	printArr(arr, len);
+	//deleting array element from the last location
+	len--;
+	printf("\nDelete element from the end of the array");
+	
+	printf("\nPrinting array elements after deleting: ");
+	printArr(arr, len);
+	
+	return 0;
+}
