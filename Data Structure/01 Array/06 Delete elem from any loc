@@ -1,0 +1,40 @@
+#include<stdio.h>
+
+void printArr(int arr[], int n) {
+	int i;
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+void delete_from_any_loc(int arr[], int *n) {
+	int i, loc;
+	printf("\nEnter the location (0 to %d): ", *n);
+	scanf("%d",&loc);
+	
+	if (loc < 0 || loc >= *n) {
+      printf("Invalid location! Please enter a value between 0 and %d.\n", *n - 1);
+      return;
+  }
+	
+	for(i = loc; i < *n - 1; i++) {
+		arr[i] = arr[i + 1];
+	} (*n)--;
+}
+
+int main() {
+	int arr[] = {22, 34, 56, 72, 48, 18, 4};
+	int len = sizeof(arr) / sizeof(arr[0]);
+	
+	printf("Printing array elements: ");
+  printArr(arr, len);
+
+	printf("\nDeleting array element from any desired location\n");
+	delete_from_any_loc(arr, &len);
+	
+	printf("\n\nPrinting array elements after deleting: ");
+  printArr(arr, len);
+	
+	return 0;
+}
