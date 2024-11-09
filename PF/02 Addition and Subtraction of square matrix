@@ -1,0 +1,54 @@
+4)	Write a program to create 2*2 matrix and display the addition and subtraction.
+Ans: // Addition
+#include<stdio.h>
+  int main() {
+     int a[2][2] = {
+      {4, 6},
+      {8, 3}
+     };
+     int b[2][2] = {
+      {6, 2},
+      {9, 5}
+     };
+   int i, j;
+   int c[2][2];
+   for(i=0; i<2; i++) {
+      for(j=0; j<2; j++) {
+         c[i][j] = a[i][j] + b[i][j];
+      }
+   }
+ printf("\nPrinting result\n");
+     for(i=0; i<2; i++) {
+        for(j=0; j<2; j++) {
+           printf("%d ",c[i][j]);
+        } printf("\n");
+     }
+ return 0;
+}
+
+// Subtraction
+#include<stdio.h>
+  int main() {
+     int a[2][2] = {
+        {12, 10},
+        {8, 5}
+     };
+     int b[2][2] = {
+        {6, 5},
+        {4, 2}
+     };
+   int i, j;
+   int c[2][2];
+   for(i=0; i<2; i++) {
+      for(j=0; j<2; j++) {
+         c[i][j] = a[i][j] - b[i][j];
+      }
+     }
+ printf("\nPrinting result\n");
+   for(i=0; i<2; i++) {
+      for(j=0; j<2; j++) {
+         printf("%d ",c[i][j]);
+      } printf("\n");
+     }
+ return 0;
+}
