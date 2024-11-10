@@ -1,0 +1,28 @@
+/* Given an exam marks as input, display the appropriate message based on the rules
+below: 
+ If marks is greater than 49, display “PASS”, otherwise display “FAIL”
+ However, for input outside the 0-100 range, display “WRONG INPUT” and
+ prompt the user to input again until a valid input is entered */
+
+#include<stdio.h>
+
+int main() {
+	int marks;
+	
+	printf("Enter the marks: ");
+	scanf("%d", &marks);
+	
+	while(marks != 0 && marks >= 100) {
+		printf("\nEnter the marks: ");
+		scanf("%d", &marks);	
+	} 
+	
+	if(marks >= 0 && marks <= 100) {
+		if(marks > 49) {
+			printf("\nPass");
+		} else {
+			printf("\nFail");
+		}
+	}
+	return 0;
+}
