@@ -1,5 +1,4 @@
 // Read 5 integers and display the value of their sum
-// Example of counter control loop
 #include<stdio.h>
 
 int main() {
