@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    int arr[] = {1, 2, 3, 2, 3, 4, 5, 1};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int uniqueCount = 0, i, j;
+
+    // Traverse the array to check for values that appear exactly once
+    for (i = 0; i < n; i++) {
+        int isUnique = 1; // Assume the current element is unique
+        
+        // Check if the current element is duplicated in the rest of the array
+        for (j = 0; j < n; j++) {
+            if (i != j && arr[i] == arr[j]) {
+                isUnique = 0; // Not unique if found elsewhere in the array
+                break;
+            }
+        }
+        
+        if (isUnique) {
+            uniqueCount++;
+        }
+    }
+    printf("Number of unique values: %d\n", uniqueCount);
+    return 0;
+}
