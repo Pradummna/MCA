@@ -1,0 +1,21 @@
+// Read 5 integers and display the value of their sum
+#include<stdio.h>
+
+int main() {
+	int i, data, sum;
+	
+	for(i=0; i<5; i++) {
+		sum = 0;
+		printf("Data of int type: ");
+		
+		if(scanf("%d",&data) != 1) {
+			printf("\nWrong input");
+			break;
+		}
+		sum += data;
+	}
+	
+	if(sum)
+	printf("\nSum: %d",sum);
+	return 0;
+}
