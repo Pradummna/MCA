@@ -1,0 +1,20 @@
+/* Read a sequence of non-negative integers from the user, and display the sum of these integers. 
+A negative input indicates the end of input process.*/
+
+#include<stdio.h>
+
+int main() {
+	int data, sum = 0;
+	
+	while(1) {
+		printf("\nEnter positive no: ");
+		scanf("%d",&data);
+		
+		if(data < 0) {
+			printf("\nSum: %d",sum);
+			break;			
+		} 
+		sum += data;	
+	} 
+	return 0;
+}
