@@ -18,14 +18,28 @@ void enqueue(int item) {
     }
 }
 
+// Dequeue function
+void dequeue() {
+    if (front == -1 || front > rear) {
+        printf("\nUnderflow: Queue is empty!\n");
+    } else {
+        printf("\nItem %d dequeued\n", queue[front]);
+        front++;
+        
+        // Reset queue if it's empty after dequeue
+        if (front > rear) {
+            front = rear = -1;
+        }
+    }
+}
+
 // Display function
 void display() {
-		int i = 0;
     if (front == -1 || front > rear) {
         printf("\nQueue is empty\n");
     } else {
         printf("\nQueue elements: ");
-        for (i = front; i <= rear; i++) {
+        for (int i = front; i <= rear; i++) {
             printf("%d ", queue[i]);
         }
         printf("\n");
@@ -34,7 +48,7 @@ void display() {
 
 int main() {
     int choice, item;
-    printf("\n1. Enqueue\n 2. Display\n 3. Exit\n");
+    printf("\n1. Enqueue 2. Dequeue 3. Display 4. Exit");
 
     while (1) {
         printf("\nEnter your choice: ");
@@ -48,10 +62,14 @@ int main() {
                 break;
 
             case 2:
-                display();  // Call display function
+                dequeue();  // Call dequeue function
                 break;
 
             case 3:
+                display();  // Call display function
+                break;
+
+            case 4:
                 printf("\nExit\n");
                 return 0;
 
