@@ -1,0 +1,28 @@
+//2. Write a program to find the sum of digits of a number until the sum becomes a single digit.
+#include<stdio.h>
+int sum_of_digits(int num);
+
+int main() {
+    int num;
+
+    printf("Enter a positive number: ");
+    scanf("%d",&num);
+
+    int res = sum_of_digits(num);
+    printf("The single digit value of the sum of %d digits is: %d",num, res);
+    return 0;
+}
+
+int sum_of_digits(int num) {
+    int sum = 0;
+
+   if(num < 10) {
+        return num;
+    } else {
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+    }
+    return sum_of_digits(sum);
+}
