@@ -1,0 +1,19 @@
+//4. Write a program to print the prime factors of a given number
+#include<stdio.h>
+
+int main() {
+    int n;
+    printf("Enter a positive integer: ");
+    scanf("%d",&n);
+
+    int divisior = 2;
+    printf("Prime factors of %d: ", n);
+    while (n > 1) {
+        while(n % divisior == 0) {
+            printf("%d ", divisior);
+            n /= divisior;
+        }
+        divisior++;
+    }
+    return 0;
+}
