@@ -1,0 +1,31 @@
+//1. Write a program to print all prime numbers between two given numbers.
+#include<stdio.h>
+
+int main() {
+    int start, end;
+
+    printf("Start value: ");
+    scanf("%d",&start);
+    printf("\nEnd value: ");
+    scanf("%d",&end);
+
+    printf("\nThe prime numbers between %d to %d: ",start, end);
+    for(int i = start; i <= end; i++) {
+        if(i == 1) {
+            continue;
+        }
+
+        int isPrime = 1;
+        for(int j = 2; j * j <= i; j++) {
+            if(i % j == 0) {
+                isPrime = 0;
+                break;
+            }
+        }
+
+        if(isPrime) {
+            printf("\n%d",i);
+        }
+    }
+    return 0;
+}
