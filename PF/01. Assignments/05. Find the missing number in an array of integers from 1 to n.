@@ -1,0 +1,26 @@
+//5. Write a program to find the missing number in an array of integers from 1 to n.
+#include<stdio.h>
+
+int main() {
+    int n;
+    printf("Enter the size: ");
+    scanf("%d",&n);
+
+    int arr[n-1];
+    printf("Enter the natural no. from 1 to %d\n",n);
+    for(int i = 0; i < n - 1; i++) {
+        printf("%d index: ",i);
+        scanf("%d",&arr[i]);
+    }
+
+    int expected_sum = n * (n + 1) / 2;
+    int actual_sum = 0;
+    for (int i = 0; i < n - 1; i++) {
+        actual_sum += arr[i];
+    }
+
+    int missing_number = expected_sum - actual_sum;  // formula of finding the missing number 
+    printf("The missing number is: %d\n", missing_number);
+
+    return 0;
+}
