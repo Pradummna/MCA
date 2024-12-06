@@ -1,0 +1,17 @@
+//7. Write a program to reverse a given integer.
+#include<stdio.h>
+
+int main() {
+    int num;
+    printf("Enter a integer digit: ");
+    scanf("%d",&num);
+    int n = num, rev_num = 0;
+
+    while (n != 0) {
+        int rem = n % 10;
+        n /= 10;
+        rev_num = rev_num * 10 + rem;
+    }
+    printf("The reversed value of %d is: %d",num,rev_num);
+    return 0;
+}
