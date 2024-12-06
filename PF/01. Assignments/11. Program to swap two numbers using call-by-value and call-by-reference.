@@ -7,7 +7,6 @@ int main() {
     int a = 10, b = 20;
     printf("Result before swaping the values");
     printf("\na = %d and b = %d",a, b);
-
     swapByValue(a, b);
     swapByRef(&a, &b);
     return 0;
