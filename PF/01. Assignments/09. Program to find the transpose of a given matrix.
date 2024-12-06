@@ -1,0 +1,44 @@
+//9. Write a program to find the transpose of a given matrix.
+#include<stdio.h>
+void display(int m, int n, int arr[m][n]);
+void transpose_and_display(int m, int n, int arr[m][n]);
+
+int main() {
+    int row, col;
+    printf("Enter the size of row: ");
+    scanf("%d", &row);
+    printf("Enter the size of col: ");
+    scanf("%d", &col);
+
+    int arr[row][col]; // Variable-length array (VLA)
+    printf("Enter elements into matrix array:\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            printf("Row %d Col %d: ", i, j);
+            scanf("%d", &arr[i][j]);
+        }
+    }
+    printf("\nOriginal Matrix:\n");
+    display(row, col, arr);
+
+    printf("\nTransposed Matrix:\n");
+    transpose_and_display(row, col, arr);
+
+    return 0;
+}
+
+void display(int m, int n, int arr[m][n]) {
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%d ", arr[i][j]);
+        } printf("\n");
+    }
+}
+
+void transpose_and_display(int m, int n, int arr[m][n]) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            printf("%d ", arr[j][i]);
+        } printf("\n");
+    }
+}
