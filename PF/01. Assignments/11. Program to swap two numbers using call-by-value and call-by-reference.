@@ -1,0 +1,30 @@
+//11. Write a program to swap two numbers using call-by-value and call-by-reference.
+#include<stdio.h>
+void swapByValue(int a, int b);
+void swapByRef(int *a, int *b);
+
+int main() {
+    int a = 10, b = 20;
+    printf("Result before swaping the values");
+    printf("\na = %d and b = %d",a, b);
+
+    swapByValue(a, b);
+    swapByRef(&a, &b);
+    return 0;
+}
+
+void swapByValue(int a, int b) {
+    int temp = a;
+    a = b;
+    b = temp;
+    printf("\nResult after swaping the values using call by values method");
+    printf("\na = %d and b = %d",a, b);
+}
+
+void swapByRef(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+    printf("\nResult after swaping the values using call by reference method");
+    printf("\na = %d and b = %d",*a, *b);
+}
