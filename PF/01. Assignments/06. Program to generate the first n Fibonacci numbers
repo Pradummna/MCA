@@ -1,0 +1,24 @@
+//6. Write a program to generate the first n Fibonacci numbers
+#include<stdio.h>
+
+int main() {
+    int n;
+    printf("Enter the nth term to generate fibonancy numbers: ");
+    scanf("%d",&n);
+    int fib1 = 0, fib2 = 1, res;
+
+    if (n >= 1) {
+        printf("%d\n", fib1); 
+    }
+    if (n >= 2) {
+        printf("%d\n", fib2); 
+    }
+
+    for (int i = 3; i <= n; i++) {
+        res = fib1 + fib2;
+        printf("%d\n",res);
+        fib1 = fib2;
+        fib2 = res;
+    }
+    return 0;
+}
