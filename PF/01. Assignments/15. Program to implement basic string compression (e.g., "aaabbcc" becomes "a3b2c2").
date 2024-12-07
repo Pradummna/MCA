@@ -1,0 +1,43 @@
+//15.Write a program to implement basic string compression (e.g., "aaabbcc" becomes "a3b2c2").
+#include<stdio.h>
+#include<string.h>
+
+int main() {
+    char str[100];
+    printf("Enter a repeated characters string value: ");
+    scanf("%s", str);
+    
+    int len = strlen(str);
+    if (len == 0) {
+        printf("Empty string.\n");
+        return 0;
+    }
+    // Maximum size of result can be twice the input size
+    char result[2 * len];  
+    // Index for the result array
+    int j = 0;  
+    int flag = 1;  
+    char temp = str[0];  
+
+    for (int i = 1; i < len; i++) {
+        if (temp == str[i]) {
+            flag++;  
+        } else {
+            result[j++] = temp; 
+            if (flag > 1) {
+                //e.g of using this flag + '0' =>Here '0' represents ASCII 48 flag = 3 → flag + '0' → 3 + 48 → 51 → which is the character '3'.
+                result[j++] = flag + '0'; 
+            }
+            temp = str[i];  
+            flag = 1;  
+        }
+    }
+    //add the last character and its count
+    result[j++] = temp;
+    if (flag > 1) {
+        result[j++] = flag + '0';
+    } 
+    result[j] = '\0';
+    printf("Compressed string: %s\n", result);
+    return 0;
+}
