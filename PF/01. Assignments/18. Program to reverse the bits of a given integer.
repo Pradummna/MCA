@@ -1,0 +1,24 @@
+// 18. Write a program to reverse the bits of a given integer.
+#include <stdio.h>
+
+unsigned int reverseBits(unsigned int n) {
+    unsigned int result = 0;
+    int bits = sizeof(n) * 8;  // Calculate number of bits in the integer (e.g., 32 bits for a 4-byte integer)
+    // Iterate through all the bits of n
+    for (int i = 0; i < bits; i++) {
+        result = result << 1;  // Shift result to the left by 1
+        result = result | (n & 1);  // Add the least significant bit of n to result
+        n = n >> 1;  // Shift n to the right by 1 to process the next bit
+    }
+    return result;
+}
+
+int main() {
+    unsigned int num;
+    printf("Enter a number: ");
+    scanf("%u", &num);
+
+    unsigned int reversed = reverseBits(num);
+    printf("Reversed bits: %u\n", reversed);
+    return 0;
+}
