@@ -1,4 +1,4 @@
-// Stack pop operation
+// Stack simple pop operation
 #include<stdio.h>
 #define size 50
 int stack[size], top = -1;
