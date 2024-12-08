@@ -1,4 +1,4 @@
-// Stack simple push operation
+// Stack push operation
 #include<stdio.h>
 #define size 50
 int stack[size], top = -1;
@@ -20,8 +20,13 @@ void push(int data) {
     } else {
         top++;
         stack[top] = data;
-        printf("\n%d Item Successfully Inserted into stack",data);
+        printf("\n%d Inserted into stack",data);
     }
+}
+
+void pop() {
+    top--;
+    printf("\nItem deleted from stack");
 }
 
 int main() {
@@ -40,13 +45,13 @@ int main() {
                 printf("\nEnter integer data: ");
                 scanf("%d",&data);
                 push(data);
-            }
                 break;
+            }
             
             case 2: {
                 display();
+                break;
             }
-            break;
             
             case 3: 
                 printf("\nSuccessfully Exit");
