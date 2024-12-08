@@ -1,0 +1,61 @@
+// Stack simple push operation
+#include<stdio.h>
+#define size 50
+int stack[size], top = -1;
+
+void display() {
+    if (top == -1) {
+        printf("\nStack is empty");
+        return;
+    }
+    printf("\nPrinting Stack Elements");
+    for (int i = 0; i <= top; i++) {
+        printf("\n%d",stack[i]);
+    }
+}
+
+void push(int data) {
+    if (top >= size - 1) {
+       printf("\nMemory is full");
+    } else {
+        top++;
+        stack[top] = data;
+        printf("\n%d inserted into stack",data);
+    }
+}
+
+int main() {
+    int choice, data;
+    printf("Stack Push Operation");
+
+    do {
+        printf("\n1. Push");
+        printf("\n2. Display");
+        printf("\n3. Exit");
+        printf("\nEnter your choice: ");
+        scanf("%d",&choice);
+
+        switch(choice) {
+            case 1: {
+                printf("\nEnter integer data: ");
+                scanf("%d",&data);
+                push(data);
+            }
+                break;
+            
+            case 2: {
+                display();
+            }
+            break;
+            
+            case 3: 
+                printf("\nSuccessfully Exit");
+                break;
+
+            default:
+                printf("\nWrong Input");
+                break; 
+        }
+    } while (choice != 3);
+    return 0;
+}
