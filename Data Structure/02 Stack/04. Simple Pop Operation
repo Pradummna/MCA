@@ -1,0 +1,62 @@
+// Stack pop operation
+#include<stdio.h>
+#define size 50
+int stack[size], top = -1;
+
+void display() {
+    if (top == -1) {
+        printf("\nStack is empty");
+        return;
+    }
+    printf("\nPrinting Stack Elements");
+    for (int i = 0; i <= top; i++) {
+        printf("\n%d",stack[i]);
+    }
+}
+
+void pop() {
+    if (top == -1) {
+        printf("Stack is Underflow");
+        return;
+    }
+    printf("\nItem successfully deleted %d",stack[top]);
+    top--;
+}
+
+int main() {
+    int choice;
+
+    for (int i = 0; i < 10; i++) {
+        stack[i] = i+10;
+        top++;
+    }
+        
+    do {
+        printf("\n1. Pop");
+        printf("\n2. Display");
+        printf("\n3. Exit");
+        printf("\nEnter your choice: ");
+        scanf("%d",&choice);
+
+        switch(choice) {
+            case 1: {
+               pop();
+            }
+            break;
+            
+            case 2: {
+                display();
+            }
+            break;
+            
+            case 3: 
+                printf("\nSuccessfully Exit");
+                break;
+
+            default:
+                printf("\nWrong Input");
+                break; 
+        }
+    } while (choice != 3);
+    return 0;
+}
