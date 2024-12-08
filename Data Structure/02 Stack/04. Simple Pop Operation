@@ -1,4 +1,4 @@
-// Stack simple pop operation
+// Stack pop operation
 #include<stdio.h>
 #define size 50
 int stack[size], top = -1;
@@ -16,7 +16,7 @@ void display() {
 
 void pop() {
     if (top == -1) {
-        printf("Stack is Underflow");
+        printf("Stack is Empty");
         return;
     }
     printf("\nItem successfully deleted %d",stack[top]);
@@ -41,13 +41,13 @@ int main() {
         switch(choice) {
             case 1: {
                pop();
+               break;
             }
-            break;
             
             case 2: {
                 display();
+                break;
             }
-            break;
             
             case 3: 
                 printf("\nSuccessfully Exit");
