@@ -16,11 +16,11 @@ void display() {
 
 void push(int data) {
     if (top >= size - 1) {
-       printf("\nMemory is full");
+       printf("\nStack is full");
     } else {
         top++;
         stack[top] = data;
-        printf("\n%d inserted into stack",data);
+        printf("\n%d Item Successfully Inserted into stack",data);
     }
 }
 
