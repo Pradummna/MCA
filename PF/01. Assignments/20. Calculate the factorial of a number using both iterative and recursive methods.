@@ -1,0 +1,31 @@
+//20. Write a program to calculate the factorial of a number using both iterative and recursive methods.
+#include<stdio.h>
+// Using iterative method
+int findFact1(int n) {
+    int res = 1;
+    for (int i = 1; i <= n; i++) {
+        res *= i;
+    }
+    return res;
+}
+// Using recursive method
+int findFact2(int n) {
+    if(n == 0 || n == 1) {
+        return 1;
+    } else {
+        return n * findFact2(n - 1);
+    }
+}
+
+int main() {
+    int num;
+    printf("Enter a positive integer value: ");
+    scanf("%d",&num);
+
+    int getFact_using_iteration = findFact1(num);
+    int getFact_using_recursion = findFact2(num);
+    
+    printf("\nFactorial of %d using iterative method is: %d",num, getFact_using_iteration);
+    printf("\nFactorial of %d using recursive method is: %d",num, getFact_using_recursion);
+    return 0;
+}
