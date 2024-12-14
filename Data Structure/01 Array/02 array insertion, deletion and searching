@@ -4,7 +4,7 @@
 void createArr(int *n);
 void menu(int arr[], int *n);
 
-void display(int arr[], int n);
+void trav_and_display(int arr[], int n);
 void insert_at_end(int arr[], int *n);
 void insert_at_any_loc(int arr[], int *n);
 void delete_at_end(int arr[], int *n);
@@ -54,7 +54,7 @@ void menu(int arr[], int *n) {
 		
 		switch(choice) {
 			case 1: {
-				display(arr, *n);
+				trav_and_display(arr, *n);
 				break;
 			}
 			
@@ -96,7 +96,7 @@ void menu(int arr[], int *n) {
 }
 
 // function to print array elements
-void display(int arr[], int n) {
+void trav_and_display(int arr[], int n) {
 	int i;
 	
 	printf("\nPrinting array elements: ");
