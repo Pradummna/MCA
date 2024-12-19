@@ -1,0 +1,56 @@
+//2. Insertion at the end
+#include<stdio.h>
+#include<stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+void insertion_at_end(struct Node** head, int newData) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    if (newNode == NULL) {  
+        printf("Memory allocation failed!\n");
+        return;
+    }
+    newNode->data = newData;
+    newNode->next = NULL; 
+
+    if (*head == NULL) {
+        *head = newNode;
+    } else {
+        struct Node* temp = *head;
+        while(temp -> next != NULL) {
+            temp = temp -> next;
+        }
+        temp -> next = newNode;
+    }
+}
+
+void display(struct Node* head) {
+    if (head == NULL) {
+        printf("The list is empty.\n");
+        return;
+    }
+    struct Node* temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);  // Print the data of each node
+        temp = temp->next;
+    } printf("NULL\n");
+}
+
+int main() {
+    struct Node* head = NULL;
+    int term;
+    printf("Enter the total no. of data want to insert: ");
+    scanf("%d",&term);
+    
+    for (int i = 0; i < term; i++) {
+        int data;
+        printf("%d Data: ",i+1);
+        scanf("%d",&data);
+        insertion_at_end(&head, data);
+    }
+    display(head);
+    return 0;
+}
