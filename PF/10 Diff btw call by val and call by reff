@@ -1,0 +1,20 @@
+#include<stdio.h>
+
+void call_by_val(int num) {
+    num++;
+    printf("\nCall by value: %d", num);
+}
+
+void call_by_ref(int *num) {
+    (*num)++;
+    printf("\nCall by ref: %d", *num);
+}
+
+int main() {
+    int a = 10;
+    call_by_val(a);
+    printf("\nOutput of a: %d", a);
+    call_by_ref(&a);
+    printf("\nOutput of a: %d", a);
+    return 0;
+}
