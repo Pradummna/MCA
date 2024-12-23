@@ -1,0 +1,126 @@
+#include<stdio.h>
+#include<string.h>
+
+struct Employee {
+    int id;
+    char name[50];
+    int salary;
+    char dept[50];
+};
+
+struct Employee emp[100];
+int count_emp = 0;
+
+void add_emp();
+void delete_emp();
+void display_emp();
+
+int main() {
+    int choice;
+    do {
+        printf("\nMenu");
+        printf("\n1. Add Employee");
+        printf("\n2. Delete Employee");
+        printf("\n3. Display Employee Record");
+        printf("\n4. Exit");
+
+        printf("\nEnter you choice: ");
+        scanf("%d",&choice);
+
+        switch (choice) {
+        case 1: {
+            add_emp();
+            break;
+        }
+
+        case 2: {
+            delete_emp();
+            break;
+        }
+
+        case 3: {
+            display_emp();
+            break;
+        }
+            
+        case 4: 
+            printf("\nSuccessfuly Exit");
+            break;
+            
+        default:
+            printf("\nWrong Input");
+            break;
+        }
+    } while (choice != 4);
+    return 0;
+}
+
+void add_emp() {
+    if(count_emp >= 100) {
+        printf("\nMemory is full");
+        return;
+    }
+
+    printf("\nEnter Employee Information");
+    printf("\nId: ");
+    scanf("%d",&emp[count_emp].id);
+    getchar();
+
+    printf("\nName: ");
+    fgets(emp[count_emp].name, sizeof(emp[count_emp].name), stdin);
+    emp[count_emp].name[strcspn(emp[count_emp].name, "\n")] = 0;
+
+    printf("\nSalary: ");
+    scanf("%d",&emp[count_emp].salary);
+    getchar();
+
+    printf("\nDepartment: ");
+    fgets(emp[count_emp].dept, sizeof(emp[count_emp].dept), stdin);
+    emp[count_emp].dept[strcspn(emp[count_emp].dept, "\n")] = 0;
+
+    count_emp++;
+    printf("\nEmployee added successfully.\n");
+}
+
+void delete_emp() {
+    if(count_emp == 0) {
+        printf("\nNo Employee Data");
+        return;
+    }
+    int id, found = 0;
+    printf("\nDelete Employee Information");
+    printf("\nEnter Employe Id: ");
+    scanf("%d",&id);
+
+    for(int i = 0; i < count_emp; i++) {
+        if (id == emp[i].id) {
+            found = 1;
+            for (int j = id; j < count_emp; j++) {
+                emp[j] = emp[j+1];
+            }   
+            count_emp--;
+            printf("\nEmployee with ID %d has been deleted.\n", id);
+            break;
+        }
+    }
+
+    if(!found) {
+        printf("\nEmployee with ID %d not found.\n", id);
+    }
+}
+
+void display_emp() {
+    if(count_emp == 0) {
+        printf("\nNo Employee Data");
+        return;
+    }
+
+    for(int i = 0; i < count_emp; i++) {
+        printf("\nEmploye no %d",i+1);
+        printf("\nId: %d",emp[i].id);
+        printf("\nName: %s",emp[i].name);
+        printf("\nSalary: %d",emp[i].salary);
+        printf("\nDepartment: %s",emp[i].dept);
+        printf("\n----------------------");
+    } printf("\n");
+}
