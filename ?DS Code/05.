@@ -1,0 +1,88 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Define the structure of a node
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+// Function to delete a node at the end
+struct Node* deleteAtEnd(struct Node* p) {
+    // Step 1: Check if the list is empty
+    if (p == NULL) {
+        printf("Underflow\n");
+        return p; // Return unchanged list
+    }
+
+    // Step 2: Check if the list has only one node
+    if (p->next == NULL) {
+        free(p); // Free the only node
+        return NULL; // The list becomes empty
+    }
+
+    // Step 3: Initialize traversal pointer
+    struct Node* q = p;
+
+    // Step 4: Traverse to the second-to-last node
+    while (q->next->next != NULL) {
+        q = q->next;
+    }
+
+    // Step 5: Remove the last node
+    free(q->next); // Free the last node
+    q->next = NULL; // Update the second-to-last node's next pointer
+
+    return p; // Return the updated list
+}
+
+// Function to print the linked list
+void printList(struct Node* head) {
+    struct Node* temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
+
+// Function to insert a node at the end (helper for testing)
+struct Node* insertAtEnd(struct Node* p, int item) {
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
+    temp->data = item;
+    temp->next = NULL;
+
+    if (p == NULL) {
+        return temp; // The new node becomes the head
+    }
+
+    struct Node* q = p;
+    while (q->next != NULL) {
+        q = q->next;
+    }
+    q->next = temp;
+    return p;
+}
+
+// Main function
+int main() {
+    struct Node* head = NULL; // Initialize the list as empty
+
+    // Insert some nodes
+    head = insertAtEnd(head, 10);
+    head = insertAtEnd(head, 20);
+    head = insertAtEnd(head, 30);
+
+    // Print the list before deletion
+    printf("Linked List before deletion: ");
+    printList(head);
+
+    // Delete the last node
+    head = deleteAtEnd(head);
+
+    // Print the list after deletion
+    printf("Linked List after deletion: ");
+    printList(head);
+
+    return 0;
+}
