@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Define the structure of a node
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+// Function to traverse and display the linked list
+void traverseAndDisplay(struct Node* p) {
+    // Step 1: Check if the list is empty
+    if (p == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    // Step 2: Initialize a traversal pointer
+    struct Node* q = p;
+
+    // Step 3: Traverse the list and display the data
+    printf("Linked List: ");
+    while (q != NULL) {
+        printf("%d -> ", q->data); // Step 4a: Print q->data
+        q = q->next;              // Step 4b: Move to the next node
+    }
+    printf("NULL\n"); // Indicate the end of the list
+}
+
+// Function to insert a node at the end (helper for testing)
+struct Node* insertAtEnd(struct Node* p, int item) {
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
+    temp->data = item;
+    temp->next = NULL;
+
+    if (p == NULL) {
+        return temp; // The new node becomes the head
+    }
+
+    struct Node* q = p;
+    while (q->next != NULL) {
+        q = q->next;
+    }
+    q->next = temp;
+    return p;
+}
+
+// Main function
+int main() {
+    struct Node* head = NULL; // Initialize the list as empty
+
+    // Insert some nodes for testing
+    head = insertAtEnd(head, 10);
+    head = insertAtEnd(head, 20);
+    head = insertAtEnd(head, 30);
+    head = insertAtEnd(head, 40);
+
+    // Traverse and display the list
+    traverseAndDisplay(head);
+
+    return 0;
+}
