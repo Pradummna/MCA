@@ -1,3 +1,4 @@
+// 7. Write an interactive program to create an array of 20 records having following field: name and marks. Sort the record (based on marks) using bubble sort. Search for a record using binary search. 
 #include <stdio.h>
 #include <string.h>
 #define SIZE 20
