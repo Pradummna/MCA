@@ -28,7 +28,7 @@ int main() {
 	int len = sizeof(arr) / sizeof(arr[0]);
 	
 	printf("Printing array elements: ");
-  printArr(arr, len);
+        printArr(arr, len);
 
 	printf("\nDeleting array element from any desired location\n");
 	delete_from_any_loc(arr, &len);
