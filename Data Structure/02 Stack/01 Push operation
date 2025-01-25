@@ -62,23 +62,22 @@ void push(int stack[], int *top) {
 				printf("\n\nStack overflow");
 				break;
 			}
-			
 			(*top)++;
 			printf("\n%d Stack: ", i);
 			scanf("%d",&stack[*top]);	
-	}
+		}
 		printf("\n\nElements successfully add into stack");
 	}
 }
 
 void show(int stack[], int top) {
-		if(top == -1) {
-			printf("\n\nStack is Empty");
-		} else {
-			int i;
-			printf("\nStack Elements:");
-			for(i=0; i<=top; i++) {
-				printf("\nStack %d: %d",i,stack[i]);
-			}
+	if(top == -1) {
+		printf("\n\nStack is Empty");
+	} else {
+		int i;
+		printf("\nStack Elements:");
+		for(i=0; i<=top; i++) {
+			printf("\nStack %d: %d",i,stack[i]);
 		}
+	}
 }
