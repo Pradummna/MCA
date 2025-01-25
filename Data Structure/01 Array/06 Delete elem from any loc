@@ -34,7 +34,7 @@ int main() {
 	delete_from_any_loc(arr, &len);
 	
 	printf("\n\nPrinting array elements after deleting: ");
-  printArr(arr, len);
+        printArr(arr, len);
 	
 	return 0;
 }
