@@ -7,17 +7,11 @@ struct Node {
     struct Node* next;
 };
 
-// Function to create a new node
-struct Node* createNode(int value) {
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->data = value;
-    newNode->next = NULL;
-    return newNode;
-}
-
 // Function to insert at the beginning of the list (used in insertAtPosition)
 void insertAt(struct Node** tail, int value) {
-    struct Node* newNode = createNode(value);
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = value;
+    newNode->next = NULL;   
 
     if (*tail == NULL) { // If the list is empty
         newNode->next = newNode;  // Points to itself
