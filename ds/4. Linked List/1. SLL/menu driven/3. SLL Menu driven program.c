@@ -8,12 +8,12 @@ struct Node {
 };
 
 // Function prototypes
-struct Node* insertAtBeginning(struct Node* head, int value);
-struct Node* insertAtEnd(struct Node* head, int value);
-struct Node* insertAtPosition(struct Node* head, int value, int position);
-struct Node* deleteFromBeginning(struct Node* head);
-struct Node* deleteFromEnd(struct Node* head);
-struct Node* deleteFromPosition(struct Node* head, int position);
+void insertAtBeginning(struct Node** head, int value);
+void insertAtEnd(struct Node** head, int value);
+void insertAtPosition(struct Node** head, int value, int position);
+void deleteFromBeginning(struct Node** head);
+void deleteFromEnd(struct Node** head);
+void deleteFromPosition(struct Node** head, int position);
 void displayList(struct Node* head);
 
 int main() {
@@ -76,7 +76,7 @@ int main() {
 }
 
 // Function to insert at the beginning
-struct Node* insertAtBeginning(struct Node* head, int value) {
+void insertAtBeginning(struct Node** head, int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
     newNode->next = head;
@@ -85,7 +85,7 @@ struct Node* insertAtBeginning(struct Node* head, int value) {
 }
 
 // Function to insert at the end
-struct Node* insertAtEnd(struct Node* head, int value) {
+void insertAtEnd(struct Node** head, int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
     newNode->next = NULL;
@@ -103,7 +103,7 @@ struct Node* insertAtEnd(struct Node* head, int value) {
 }
 
 // Function to insert at a specific position
-struct Node* insertAtPosition(struct Node* head, int value, int position) {
+void insertAtPosition(struct Node** head, int value, int position) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
     if (position == 1) {
@@ -127,7 +127,7 @@ struct Node* insertAtPosition(struct Node* head, int value, int position) {
 }
 
 // Function to delete from the beginning
-struct Node* deleteFromBeginning(struct Node* head) {
+void deleteFromBeginning(struct Node** head) {
     if (head == NULL) {
         printf("List is empty.\n");
         return NULL;
@@ -140,7 +140,7 @@ struct Node* deleteFromBeginning(struct Node* head) {
 }
 
 // Function to delete from the end
-struct Node* deleteFromEnd(struct Node* head) {
+void deleteFromEnd(struct Node** head) {
     if (head == NULL) {
         printf("List is empty.\n");
         return NULL;
@@ -161,7 +161,7 @@ struct Node* deleteFromEnd(struct Node* head) {
 }
 
 // Function to delete from a specific position
-struct Node* deleteFromPosition(struct Node* head, int position) {
+void deleteFromPosition(struct Node** head, int position) {
     if (head == NULL) {
         printf("List is empty.\n");
         return NULL;
