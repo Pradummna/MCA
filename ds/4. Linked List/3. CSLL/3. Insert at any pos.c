@@ -24,13 +24,14 @@ void insertAt(struct Node** tail, int value) {
 
 // Function to insert at a specific position
 void insertAtPosition(struct Node** tail, int value, int position) {
-    struct Node* newNode = createNode(value);
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = value;
+    newNode->next = NULL;
 
     if (position == 1) { // Insert at the beginning
         insertAt(tail, value);
         return;
     }
-
     struct Node* temp = (*tail)->next;
     int currentPos = 1;
 
@@ -39,18 +40,15 @@ void insertAtPosition(struct Node** tail, int value, int position) {
         temp = temp->next;
         currentPos++;
     }
-
     // If position is out of bounds
     if (temp == *tail && currentPos < position - 1) {
         printf("Position out of bounds!\n");
         free(newNode);
         return;
     }
-
     // Insert the new node at the desired position
     newNode->next = temp->next;
     temp->next = newNode;
-
     // If inserted at the end, update the tail
     if (temp == *tail) {
         *tail = newNode;
@@ -63,7 +61,6 @@ void display(struct Node* tail) {
         printf("List is empty!\n");
         return;
     }
-
     struct Node* temp = tail->next;
     printf("Circular Singly Linked List: ");
     do {
