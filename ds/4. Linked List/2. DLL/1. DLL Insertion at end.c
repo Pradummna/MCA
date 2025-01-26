@@ -8,18 +8,12 @@ struct Node {
     struct Node* next;
 };
 
-// Function to create a new node
-struct Node* createNode(int value) {
+// Function to insert a node at the end of the doubly linked list
+void insertAtEnd(struct Node** head, int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
     newNode->prev = NULL;
     newNode->next = NULL;
-    return newNode;
-}
-
-// Function to insert a node at the end of the doubly linked list
-void insertAtEnd(struct Node** head, int value) {
-    struct Node* newNode = createNode(value);
 
     if (*head == NULL) { // If the list is empty
         *head = newNode;
@@ -38,7 +32,6 @@ void insertAtEnd(struct Node** head, int value) {
 // Function to display the list forward
 void displayForward(struct Node* head) {
     struct Node* temp = head;
-
     printf("Doubly Linked List (Forward): ");
     while (temp != NULL) {
         printf("%d ", temp->data);
@@ -53,7 +46,6 @@ void displayBackward(struct Node* head) {
     while (temp != NULL && temp->next != NULL) {
         temp = temp->next;
     }
-
     printf("Doubly Linked List (Backward): ");
     while (temp != NULL) {
         printf("%d ", temp->data);
