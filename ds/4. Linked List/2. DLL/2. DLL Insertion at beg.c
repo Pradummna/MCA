@@ -8,19 +8,13 @@ struct Node {
     struct Node* next;
 };
 
-// Function to create a new node
-struct Node* createNode(int value) {
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+// Function to insert a node at the beginning of the doubly linked list
+void insertAtBeginning(struct Node** head, int value) {
+     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
     newNode->prev = NULL;
     newNode->next = NULL;
-    return newNode;
-}
-
-// Function to insert a node at the beginning of the doubly linked list
-void insertAtBeginning(struct Node** head, int value) {
-    struct Node* newNode = createNode(value);
-
+    
     if (*head == NULL) { // If the list is empty
         *head = newNode;
         return;
