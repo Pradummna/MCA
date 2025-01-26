@@ -1,4 +1,4 @@
-13. Write a program to implement stack using linked list.
+// 13. Write a program to implement stack using linked list.
 #include <stdio.h>
 #include <stdlib.h>
 
