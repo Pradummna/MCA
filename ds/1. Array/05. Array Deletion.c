@@ -8,7 +8,7 @@
 void createArray(int *n);
 void display(int arr[], int n);
 void menu(int arr[], int *n);
-void delete_at_the_end(int arr[], int *n);
+void delete_at_the_end(int *n);
 void delete_at_any_loc(int arr[], int *n);
 
 int main() {
@@ -84,7 +84,7 @@ void display(int arr[], int n) {
     } printf("\n");
 }
 
-void delete_at_the_end(int arr[], int *n) {
+void delete_at_the_end(int *n) {
 	if(*n > 0) {
 		(*n)--;
 		printf("\nElement deleted successfully\n");
