@@ -79,9 +79,9 @@ int main() {
 void insertAtBeginning(struct Node** head, int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
-    newNode->next = head;
+    newNode->next = *head;
+    *head = newNode; // Update the head pointer
     printf("Inserted %d at the beginning.\n", value);
-    return newNode;
 }
 
 // Function to insert at the end
@@ -89,17 +89,17 @@ void insertAtEnd(struct Node** head, int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
     newNode->next = NULL;
-    if (head == NULL) {
+    if (*head == NULL) {
+        *head = newNode; // If list is empty, make the new node the head
         printf("Inserted %d as the first element.\n", value);
-        return newNode;
+        return;
     }
-    struct Node* temp = head;
+    struct Node* temp = *head;
     while (temp->next != NULL) {
         temp = temp->next;
     }
     temp->next = newNode;
     printf("Inserted %d at the end.\n", value);
-    return head;
 }
 
 // Function to insert at a specific position
@@ -107,85 +107,83 @@ void insertAtPosition(struct Node** head, int value, int position) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
     if (position == 1) {
-        newNode->next = head;
+        newNode->next = *head;
+        *head = newNode; // Update the head pointer
         printf("Inserted %d at position %d.\n", value, position);
-        return newNode;
+        return;
     }
-    struct Node* temp = head;
+    struct Node* temp = *head;
     for (int i = 1; i < position - 1 && temp != NULL; i++) {
         temp = temp->next;
     }
     if (temp == NULL) {
         printf("Invalid position!\n");
         free(newNode);
-        return head;
+        return;
     }
     newNode->next = temp->next;
     temp->next = newNode;
     printf("Inserted %d at position %d.\n", value, position);
-    return head;
 }
 
 // Function to delete from the beginning
 void deleteFromBeginning(struct Node** head) {
-    if (head == NULL) {
+    if (*head == NULL) {
         printf("List is empty.\n");
-        return NULL;
+        return;
     }
-    struct Node* temp = head;
-    head = head->next;
+    struct Node* temp = *head;
+    *head = (*head)->next; // Update the head pointer
     printf("Deleted %d from the beginning.\n", temp->data);
     free(temp);
-    return head;
 }
 
 // Function to delete from the end
 void deleteFromEnd(struct Node** head) {
-    if (head == NULL) {
+    if (*head == NULL) {
         printf("List is empty.\n");
-        return NULL;
+        return;
     }
-    if (head->next == NULL) {
-        printf("Deleted %d from the end.\n", head->data);
-        free(head);
-        return NULL;
+    if ((*head)->next == NULL) { // Only one element
+        printf("Deleted %d from the end.\n", (*head)->data);
+        free(*head);
+        *head = NULL;
+        return;
     }
-    struct Node* temp = head;
+    struct Node* temp = *head;
     while (temp->next->next != NULL) {
         temp = temp->next;
     }
     printf("Deleted %d from the end.\n", temp->next->data);
     free(temp->next);
     temp->next = NULL;
-    return head;
 }
 
 // Function to delete from a specific position
 void deleteFromPosition(struct Node** head, int position) {
-    if (head == NULL) {
+    if (*head == NULL) {
         printf("List is empty.\n");
-        return NULL;
+        return;
     }
     if (position == 1) {
-        struct Node* temp = head;
-        head = head->next;
+        struct Node* temp = *head;
+        *head = (*head)->next; // Update the head pointer
         printf("Deleted %d from position %d.\n", temp->data, position);
         free(temp);
-        return head;
+        return;
     }
-    struct Node* temp = head;
+    struct Node* temp = *head;
     for (int i = 1; i < position - 1 && temp->next != NULL; i++) {
         temp = temp->next;
     }
     if (temp->next == NULL) {
         printf("Invalid position!\n");
-        return head;
+        return;
     }
     struct Node* toDelete = temp->next;
     temp->next = toDelete->next;
     printf("Deleted %d from position %d.\n", toDelete->data, position);
     free(toDelete);
-    return head;
 }
 
 // Function to display the list
