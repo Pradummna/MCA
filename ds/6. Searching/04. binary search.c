@@ -6,7 +6,6 @@ int binarySearch(int arr[], int size, int target) {
 
     while (low <= high) {
         int mid = low + (high - low) / 2;  // Calculate the middle index
-
         // Check if target is at the middle
         if (arr[mid] == target) {
             return mid;  // Target found
@@ -33,12 +32,13 @@ void printResult(int result) {
 }
 
 int main() {
-    int arr[] = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19};
+    int arr[] = {11, 13, 15, 17, 19};
     int size = sizeof(arr) / sizeof(arr[0]);
-    int target = 7;
+    int target;
+    printf("\nEnter element: ");
+    scanf("%d", &target);
 
     int result = binarySearch(arr, size, target);
     printResult(result);
-
     return 0;
 }
