@@ -79,7 +79,7 @@ void display(int queue[], int front, int rear) {
     }
     printf("\nDisplay Queue Items:");
     for(int i = front; i <= rear; i++) {
-        printf("%d", queue[front]);
+        printf("%d ", queue[i]);
     } printf("\n");
 }
 
