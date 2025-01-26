@@ -37,30 +37,30 @@ int main() {
             case 1:
                 printf("Enter value to insert: ");
                 scanf("%d", &value);
-                head = insertAtBeginning(head, value);
+                insertAtBeginning(&head, value);
                 break;
             case 2:
                 printf("Enter value to insert: ");
                 scanf("%d", &value);
-                head = insertAtEnd(head, value);
+                insertAtEnd(&head, value);
                 break;
             case 3:
                 printf("Enter value to insert: ");
                 scanf("%d", &value);
                 printf("Enter position to insert: ");
                 scanf("%d", &position);
-                head = insertAtPosition(head, value, position);
+                insertAtPosition(&head, value, position);
                 break;
             case 4:
-                head = deleteFromBeginning(head);
+                deleteFromBeginning(&head);
                 break;
             case 5:
-                head = deleteFromEnd(head);
+                deleteFromEnd(&head);
                 break;
             case 6:
                 printf("Enter position to delete: ");
                 scanf("%d", &position);
-                head = deleteFromPosition(head, position);
+                deleteFromPosition(&head, position);
                 break;
             case 7:
                 displayList(head);
