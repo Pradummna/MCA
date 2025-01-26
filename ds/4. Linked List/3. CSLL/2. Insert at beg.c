@@ -6,17 +6,11 @@ struct Node {
     int data;
     struct Node* next;
 };
-
-// Function to create a new node
-struct Node* createNode(int value) {
+    
+void insertAtBeg(struct Node** tail, int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
     newNode->next = NULL;
-    return newNode;
-}
-
-void insertAtBeg(struct Node** tail, int value) {
-    struct Node* newNode = createNode(value);
 
     if (*tail == NULL) { // If the list is empty
         newNode->next = newNode;
