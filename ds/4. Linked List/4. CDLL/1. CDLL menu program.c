@@ -8,18 +8,12 @@ struct Node {
     struct Node* prev;
 };
 
-// Function to create a new node
-struct Node* createNode(int value) {
+// Function to insert a node at the beginning
+void insertAtBeginning(struct Node** tail, int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
     newNode->next = NULL;
     newNode->prev = NULL;
-    return newNode;
-}
-
-// Function to insert a node at the beginning
-void insertAtBeginning(struct Node** tail, int value) {
-    struct Node* newNode = createNode(value);
 
     if (*tail == NULL) { // If the list is empty
         newNode->next = newNode;
