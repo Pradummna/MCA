@@ -14,6 +14,17 @@ void insertAtBegg(struct Node** head, int data) {
     *head = newNode;
 }
 
+void deletionAtBegg(struct Node** head) {
+    if (*head == NULL) {
+        printf("List is empty.\n");
+        return;
+    }
+    struct Node* temp = *head;
+    *head = (*head)->next; // Update the head pointer
+    printf("Deleted %d from the beginning.\n", temp->data);
+    free(temp);
+}
+
 void display(struct Node* head) {
     while(head != NULL) {
         printf("%d -> ", head->data);
